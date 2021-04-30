@@ -5,9 +5,9 @@ namespace MSTestUserRegistration
 {
     internal class UserDetail
     {
-        public static string mailIDPattern = "^([a-z]{3,})([.]{0,1}[a-z]*)@([a-z]{2}).([a-z]{2})([.]{1}[a-z]{2}){0,1}$";
+        public static string mobileNumberPattern = "^91\\s[1-9]{1}[0-9]{9}$";
 
-        public Func<string, string> ValidateEmail = x => Regex.IsMatch(x, mailIDPattern) ? "Valid mailID" :
+        public Func<string, string> ValidateMobileNumber = x => Regex.IsMatch(x, mobileNumberPattern) ? "Valid mobile number" :
           throw new UserException();
     }
 }
