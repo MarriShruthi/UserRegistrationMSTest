@@ -26,18 +26,17 @@ namespace MSTestUserRegistration
         [DataRow("Suma")]
         [DataRow("Hima")]
 
-        public void Given_FirstName_StartsWithCapital_MinThreeCharacter_ShouldReturnTrue(string name)
+        public void Given_LasttName_StartsWithCapital_MinThreeCharacter_ShouldReturnTrue(string name)
         {
             try
             {
-                string result = userDetailsPattern.ValidateFirstName(name);
+                string result = userDetailsPattern.ValidateLastName(name);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Valid First Name", e.Message);
+                Assert.AreEqual("Valid Last Name", e.Message);
             }
         }
-
         ///// <summary>
         ///// Test Method to Invalidate first name
         ///// </summary>
@@ -47,15 +46,15 @@ namespace MSTestUserRegistration
         [DataRow("Swathi")]
 
 
-        public void GivenFirstName_IfAll_LettersAreCapital_AndMinThreeCharacters_ShouldReturnFalse(string invalidFirstName)
+        public void GivenLasttName_IfAll_LettersAreCapital_AndMinThreeCharacters_ShouldReturnFalse(string invalidLastName)
         {
             try
             {
-                string result = userDetailsPattern.ValidateFirstName(invalidFirstName);
+                string result = userDetailsPattern.ValidateLastName(invalidLastName);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Invalid First Name", e.Message);
+                Assert.AreEqual("Invalid Last Name", e.Message);
             }
         }
     }
