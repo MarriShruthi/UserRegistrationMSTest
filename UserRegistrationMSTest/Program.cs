@@ -12,9 +12,9 @@ namespace UserRegistrationMSTest
         {
             UserDetail pattern = new UserDetail();
             Console.WriteLine("******Welcome To User Registration******");
-            Console.WriteLine("Enter Last Name:");
-            string LastName = Console.ReadLine();
-            Console.WriteLine(pattern.ValidateLastName(LastName));
+            Console.WriteLine("Enter Email ID:");
+            string emailID = Console.ReadLine();
+            Console.WriteLine(pattern.ValidateEmail(emailID)); 
         }
     }
 }

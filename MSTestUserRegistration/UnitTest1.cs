@@ -16,45 +16,46 @@ namespace MSTestUserRegistration
         }
 
         /// <summary>
-        /// Validate first name
+        /// Validate Email Id
         /// </summary>
         [TestMethod]
-        [DataRow("Shruthi")]
-        [DataRow("Rishika")]
-        [DataRow("Swetha")]
-        [DataRow("Hema")]
-        [DataRow("Suma")]
-        [DataRow("Hima")]
+        [DataRow("abc.xyz@bl.co.in")]
+        [DataRow("chinna.abc@bl.cp.in")]
+        [DataRow("shru.dcd@bl.cp.in")]
 
-        public void Given_LasttName_StartsWithCapital_MinThreeCharacter_ShouldReturnTrue(string name)
+        public void Given__Valid_Email_ShouldReturnTrue(string emailInvalid)
         {
             try
             {
-                string result = userDetailsPattern.ValidateLastName(name);
+                string result = userDetailsPattern.ValidateEmail(emailInvalid);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Valid Last Name", e.Message);
+                Assert.AreEqual("Valid Email", e.Message);
             }
         }
-        ///// <summary>
-        ///// Test Method to Invalidate first name
-        ///// </summary>
+
+        /// <summary>
+        /// Test Method to pass invalid email id.
+        /// </summary>
         [TestMethod]
-        [DataRow("San")]
-        [DataRow("Tina")]
-        [DataRow("Swathi")]
+        [DataRow("shruthi@gmail")]
+        [DataRow("swetha@gmail.comm")]
+        [DataRow("rishi@gmail.com.ind.us")]
+        [DataRow("hima#100@gmail")]
+        [DataRow("suma11@gmail.com.a12")]
+        [DataRow("san@gmail.com.12sa")]
+        [DataRow("_sid@gmail.com")]
 
-
-        public void GivenLasttName_IfAll_LettersAreCapital_AndMinThreeCharacters_ShouldReturnFalse(string invalidLastName)
+        public void GivenEmailId_WhenIsNotProper_ShouldReturnFalse(string emailInvalid)
         {
             try
             {
-                string result = userDetailsPattern.ValidateLastName(invalidLastName);
+                string result = userDetailsPattern.ValidateEmail(emailInvalid);
             }
             catch (UserException e)
             {
-                Assert.AreEqual("Invalid Last Name", e.Message);
+                Assert.AreEqual("Invalid email id", e.Message);
             }
         }
     }
